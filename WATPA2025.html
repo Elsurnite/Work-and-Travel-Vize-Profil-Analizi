@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyZone Puan Hesaplama Aracı</title>
+    <style>
+        #protected-content {
+            display: none; /* Başlangıçta gizli */
+        }
+        #error-message2 {
+            display: none;
+            color: red;
+        }
+        #password-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        #password-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        #password-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        #password-form button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        #password-form button:hover {
+            background-color: #218838;
+        }
+        
+        #error-message2 {
+            color: #d9534f;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Şifre Giriş Formu -->
+    <div id="password-form">
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" placeholder="Şifreyi girin">
+        <button onclick="checkPassword()">Giriş</button>
+        <div id="error-message2">Yanlış şifre, tekrar deneyin.</div>
+    </div>
+
+    <!-- Korunan İçerik -->
+    <div id="protected-content">
+        <!-- Burada daha önceki kodunuz yer alacak -->
+        <form id="calculationForm">
+
+            <label for="dnsm">Danışman:</label>
+            <select id="dnsm">
+                <option value=""></option>
+                <option value="Elsurnite">Elsurnite</option>
+
+                
+            </select><br>
+
+
+            <label for="name">Ad Soyad:</label>
+            <input type="text" id="name" placeholder="Ad Soyad"><br>
+
+            <label for="university">Üniversite:</label>
+            <select id="university">
+             <option value=""></option>
+             <option value="Abant İzzet Baysal Üniversitesi">Abant İzzet Baysal Üniversitesi</option>
+             <option value="Abdullah Gül Üniversitesi">Abdullah Gül Üniversitesi</option>
+             <option value="Acıbadem Mehmet Ali Aydınlar Üniversitesi">Acıbadem Mehmet Ali Aydınlar Üniversitesi</option>
+             <option value="Adana Alparslan Türkeş Bilim ve Teknoloji Üniversitesi">Adana Alparslan Türkeş Bilim ve Teknoloji Üniversitesi</option>
+             <option value="Afyon Kocatepe Üniversitesi">Afyon Kocatepe Üniversitesi</option>
+             <option value="Ağrı İbrahim Çeçen Üniversitesi">Ağrı İbrahim Çeçen Üniversitesi</option>
+             <option value="Akdeniz Üniversitesi">Akdeniz Üniversitesi</option>
+             <option value="Alanya Alaattin Keykubat Üniversitesi">Alanya Alaattin Keykubat Üniversitesi</option>
+             <option value="Alanya Hamdullah Emin Paşa Üniversitesi">Alanya Hamdullah Emin Paşa Üniversitesi</option>
+             <option value="Altınbaş (Kemerburgaz) Üniversitesi">Altınbaş (Kemerburgaz) Üniversitesi</option>
+             <option value="Anadolu Üniversitesi">Anadolu Üniversitesi</option>
+             <option value="Ankara Bilim Üniversitesi">Ankara Bilim Üniversitesi</option>
+             <option value="Ankara Hacı Bayram Veli Üniversitesi">Ankara Hacı Bayram Veli Üniversitesi</option>
+             <option value="Ankara Medipol Universitesi">Ankara Medipol Universitesi</option>
+             <option value="Ankara Üniversitesi">Ankara Üniversitesi</option>
+             <option value="Ankara Yıldırım Beyazıt Üniversitesi">Ankara Yıldırım Beyazıt Üniversitesi</option>
+             <option value="Antalya Bilim Üniversitesi">Antalya Bilim Üniversitesi</option>
+             <option value="Atatürk Üniversitesi">Atatürk Üniversitesi</option>
+             <option value="Atılım Üniversitesi">Atılım Üniversitesi</option>
+             <option value="Aydın Adnan Menderes Üniversitesi">Aydın Adnan Menderes Üniversitesi</option>
+             <option value="Bahçeşehir Üniversitesi">Bahçeşehir Üniversitesi</option>
+             <option value="Balıkesir Üniversitesi">Balıkesir Üniversitesi</option>
+             <option value="Bartın Üniversitesi">Bartın Üniversitesi</option>
+             <option value="Başkent Üniversitesi">Başkent Üniversitesi</option>
+             <option value="Beykent Üniversitesi">Beykent Üniversitesi</option>
+             <option value="Beykoz Teknoloji Üniversitesi">Beykoz Teknoloji Üniversitesi</option>
+             <option value="Biruni Üniversitesi">Biruni Üniversitesi</option>
+             <option value="Boğaziçi Üniversitesi">Boğaziçi Üniversitesi</option>
+             <option value="Bursa Teknik Üniversitesi">Bursa Teknik Üniversitesi</option>
+             <option value="Bursa Uludağ Üniversitesi">Bursa Uludağ Üniversitesi</option>
+             <option value="Çanakkale 18 Mart Üniversitesi">Çanakkale 18 Mart Üniversitesi</option>
+             <option value="Çankaya Üniversitesi">Çankaya Üniversitesi</option>
+             <option value="Çukurova Üniversitesi">Çukurova Üniversitesi</option>
+             <option value="Dicle Üniversitesi">Dicle Üniversitesi</option>
+             <option value="Doğu Akdeniz Üniversitesi">Doğu Akdeniz Üniversitesi</option>
+             <option value="Doğuş Üniversitesi">Doğuş Üniversitesi</option>
+             <option value="Dokuz Eylül Üniversitesi">Dokuz Eylül Üniversitesi</option>
+             <option value="Düzce Üniversitesi">Düzce Üniversitesi</option>
+             <option value="Ege Üniversitesi">Ege Üniversitesi</option>
+             <option value="Erciyes Üniversitesi">Erciyes Üniversitesi</option>
+             <option value="Eskişehir Osmangazi Üniversitesi">Eskişehir Osmangazi Üniversitesi</option>
+             <option value="Eskişehir Teknik Üniversitesi">Eskişehir Teknik Üniversitesi</option>
+             <option value="Fenerbahçe Üniversitesi">Fenerbahçe Üniversitesi</option>
+             <option value="Fırat Üniversitesi">Fırat Üniversitesi</option>
+             <option value="Gazi Üniversitesi">Gazi Üniversitesi</option>
+             <option value="Gebze Teknik Üniversitesi">Gebze Teknik Üniversitesi</option>
+             <option value="Girne Amerikan Üniversitesi">Girne Amerikan Üniversitesi</option>
+             <option value="Hacettepe Üniversitesi">Hacettepe Üniversitesi</option>
+             <option value="Haliç Üniversitesi">Haliç Üniversitesi</option>
+             <option value="Hasan Kalyoncu Üniversitesi">Hasan Kalyoncu Üniversitesi</option>
+             <option value="Hitit Üniversitesi">Hitit Üniversitesi</option>
+             <option value="İbn Haldun Üniversitesi">İbn Haldun Üniversitesi</option>
+             <option value="İhsan Doğramacı Bilkent Üniversitesi">İhsan Doğramacı Bilkent Üniversitesi</option>
+             <option value="İnönü Üniversitesi">İnönü Üniversitesi</option>
+             <option value="Işık Üniversitesi">Işık Üniversitesi</option>
+             <option value="İskenderun Teknik Üniversitesi">İskenderun Teknik Üniversitesi</option>
+             <option value="İstanbul Arel Üniversitesi">İstanbul Arel Üniversitesi</option>
+             <option value="İstanbul Atlas Üniversitesi">İstanbul Atlas Üniversitesi</option>
+             <option value="İstanbul Aydın Üniversitesi">İstanbul Aydın Üniversitesi</option>
+             <option value="İstanbul Bilgi Üniversitesi">İstanbul Bilgi Üniversitesi</option>
+             <option value="İstanbul Esenyurt Üniversitesi">İstanbul Esenyurt Üniversitesi</option>
+             <option value="İstanbul Galata Üniversitesi">İstanbul Galata Üniversitesi</option>
+             <option value="İstanbul Gedik Üniversitesi">İstanbul Gedik Üniversitesi</option>
+             <option value="İstanbul Gelişim Üniversitesi">İstanbul Gelişim Üniversitesi</option>
+             <option value="İstanbul Kent Üniversitesi">İstanbul Kent Üniversitesi</option>
+             <option value="İstanbul Kültür Üniversitesi">İstanbul Kültür Üniversitesi</option>
+             <option value="İstanbul Medeniyet Üniversitesi">İstanbul Medeniyet Üniversitesi</option>
+             <option value="İstanbul Medipol Üniversitesi">İstanbul Medipol Üniversitesi</option>
+             <option value="İstanbul Sağlık ve Teknoloji Üniversitesi">İstanbul Sağlık ve Teknoloji Üniversitesi</option>
+             <option value="İstanbul Sebahattin Zaim Üniversitesi">İstanbul Sebahattin Zaim Üniversitesi</option>
+             <option value="İstanbul Teknik Üniversitesi">İstanbul Teknik Üniversitesi</option>
+             <option value="İstanbul Ticaret Üniversitesi">İstanbul Ticaret Üniversitesi</option>
+             <option value="İstanbul Topkapı Üniversitesi">İstanbul Topkapı Üniversitesi</option>
+             <option value="İstanbul Üniversitesi">İstanbul Üniversitesi</option>
+             <option value="İstanbul Yeni Yuzyıl Üniversitesi">İstanbul Yeni Yuzyıl Üniversitesi</option>
+             <option value="İstinye Üniversitesi">İstinye Üniversitesi</option>
+             <option value="İzmir Bakırçay Üniversitesi">İzmir Bakırçay Üniversitesi</option>
+             <option value="İzmir Demokrasi Üniversitesi">İzmir Demokrasi Üniversitesi</option>
+             <option value="İzmir Ekonomi Üniversitesi">İzmir Ekonomi Üniversitesi</option>
+             <option value="İzmir Katip Çelebi Üniversitesi">İzmir Katip Çelebi Üniversitesi</option>
+             <option value="İzmir Üniversitesi">İzmir Üniversitesi</option>
+             <option value="İzmir Yüksek Teknoloji Enstitüsü">İzmir Yüksek Teknoloji Enstitüsü</option>
+             <option value="Kadir Has Üniversitesi">Kadir Has Üniversitesi</option>
+             <option value="Karabük Üniversitesi">Karabük Üniversitesi</option>
+             <option value="Karadeniz Teknik Üniversitesi">Karadeniz Teknik Üniversitesi</option>
+             <option value="Kayseri Üniversitesi">Kayseri Üniversitesi</option>
+             <option value="Kıbrıs Ada Kent Üniversitesi">Kıbrıs Ada Kent Üniversitesi</option>
+             <option value="Koç Üniversitesi">Koç Üniversitesi</option>
+             <option value="Kocaeli Üniversitesi">Kocaeli Üniversitesi</option>
+             <option value="Konya Teknik Üniversitesi">Konya Teknik Üniversitesi</option>
+             <option value="Kütahya Dumlupınar Üniversitesi">Kütahya Dumlupınar Üniversitesi</option>
+             <option value="Lefke Avrupa Üniversitesi">Lefke Avrupa Üniversitesi</option>
+             <option value="Maltepe Üniversitesi">Maltepe Üniversitesi</option>
+             <option value="Manisa Celal Bayar Üniversitesi">Manisa Celal Bayar Üniversitesi</option>
+             <option value="Marmara Üniversitesi">Marmara Üniversitesi</option>
+             <option value="MEF Üniversitesi">MEF Üniversitesi</option>
+             <option value="Mersin Üniversitesi">Mersin Üniversitesi</option>
+             <option value="Mimar Sinan Güzel Sanatlar Üniversitesi">Mimar Sinan Güzel Sanatlar Üniversitesi</option>
+             <option value="Muğla Sıtkı Koçman Üniversitesi">Muğla Sıtkı Koçman Üniversitesi</option>
+             <option value="Necmettin Erbakan Üniversitesi">Necmettin Erbakan Üniversitesi</option>
+             <option value="Nişantaşı Üniversitesi">Nişantaşı Üniversitesi</option>
+             <option value="Okan Üniversitesi">Okan Üniversitesi</option>
+             <option value="Orta Doğu Teknik Üniversitesi">Orta Doğu Teknik Üniversitesi</option>
+             <option value="Orta Doğu Teknik Üniversitesi - KIBRIS">Orta Doğu Teknik Üniversitesi - KIBRIS</option>
+             <option value="Ostim Teknik Üniversitesi">Ostim Teknik Üniversitesi</option>
+             <option value="Özyeğin Üniversitesi">Özyeğin Üniversitesi</option>
+             <option value="Pamukkale Üniversitesi">Pamukkale Üniversitesi</option>
+             <option value="Piri Reis Üniversitesi">Piri Reis Üniversitesi</option>
+             <option value="Sabancı Üniversitesi">Sabancı Üniversitesi</option>
+             <option value="Sağlık Bilimleri Üniversitesi">Sağlık Bilimleri Üniversitesi</option>
+             <option value="Sakarya Üniversitesi">Sakarya Üniversitesi</option>
+             <option value="Samsun Üniversitesi">Samsun Üniversitesi</option>
+             <option value="Sanko Üniversitesi">Sanko Üniversitesi</option>
+             <option value="Selçuk Üniversitesi">Selçuk Üniversitesi</option>
+             <option value="Siirt Üniversitesi">Siirt Üniversitesi</option>
+             <option value="Sinop Üniversitesi">Sinop Üniversitesi</option>
+             <option value="Süleyman Demirel Üniversitesi">Süleyman Demirel Üniversitesi</option>
+             <option value="Şırnak Üniversitesi">Şırnak Üniversitesi</option>
+             <option value="Ted Üniversitesi">Ted Üniversitesi</option>
+             <option value="Tekirdağ Namık Kemal Üniversitesi">Tekirdağ Namık Kemal Üniversitesi</option>
+             <option value="TOBB Ekonomi ve Teknoloji Üniversitesi">TOBB Ekonomi ve Teknoloji Üniversitesi</option>
+             <option value="Toros Üniversitesi">Toros Üniversitesi</option>
+             <option value="Trakya Üniversitesi">Trakya Üniversitesi</option>
+             <option value="Türk Hava Kurumu Üniversitesi">Türk Hava Kurumu Üniversitesi</option>
+             <option value="TÜRK-ALMAN Üniversitesi">TÜRK-ALMAN Üniversitesi</option>
+             <option value="Ufuk Üniversitesi">Ufuk Üniversitesi</option>
+             <option value="Uluslararası Kıbrıs Üniversitesi">Uluslararası Kıbrıs Üniversitesi</option>
+             <option value="Üsküdar Üniversitesi">Üsküdar Üniversitesi</option>
+             <option value="Yalova Üniversitesi">Yalova Üniversitesi</option>
+             <option value="Yeditepe Üniversitesi">Yeditepe Üniversitesi</option>
+             <option value="Yeni Yüzyıl Üniversitesi">Yeni Yüzyıl Üniversitesi</option>
+             <option value="Yıldız Teknik Üniversitesi">Yıldız Teknik Üniversitesi</option>
+             <option value="Yozgat Bozok Üniversitesi">Yozgat Bozok Üniversitesi</option>
+             <option value="Zonguldak Bülent Ecevit Üniversitesi">Zonguldak Bülent Ecevit Üniversitesi</option>
+
+
+
+      <!-- Add other universities as options -->
+     </select><br>
+
+    <label for="class">Sınıf:</label>
+    <select id="class">
+        <option value=""></option>
+        <option value="Hazırlık">Hazırlık</option>
+        <option value="Bachelor 1">Bachelor 1</option>
+        <option value="Bachelor 2">Bachelor 2</option>
+        <option value="Bachelor 3">Bachelor 3</option>
+        <option value="Bachelor 4">Bachelor 4</option>
+        <option value="Bachelor 5">Bachelor 5</option>
+
+    </select><br>
+
+    <label for="gpa">Genel GPA:</label>
+    <select id="gpa">
+        <option value=""></option>
+        <option value="3.0">3.0 ve Üzeri</option>
+        <option value="2.8">2.8 - 3.0</option>
+        <option value="2.6">2.6 - 2.8</option>
+        <option value="2.4">2.4 - 2.6</option>  
+        <option value="2.2">2.2 - 2.4</option>
+        <option value="2.0">2.0 - 2.2</option>
+        <option value="1.99">1.99 ve Altı</option>
+        <option value="Henüz">Henüz Belli Değil</option>
+        <option value="Hazırlık">Hazırlık</option>
+    </select><br>
+
+    <label for="sem-gpa">Son Dönem GPA:</label>
+    <select id="sem-gpa">
+        <option value=""></option>
+        <option value="3.0">3.0 ve Üzeri</option>
+        <option value="2.8">2.8 - 3.0</option>
+        <option value="2.6">2.6 - 2.8</option>
+        <option value="2.4">2.4 - 2.6</option>
+        <option value="2.2">2.2 - 2.4</option>
+        <option value="2.0">2.0 - 2.2</option>
+        <option value="1.99">1.99 ve Altı</option>
+        <option value="Henüz">Henüz Belli Değil</option>
+        <option value="Hazırlık">Hazırlık</option>
+    </select><br>
+
+    <label for="Lose">Kayıp Yılı:</label>
+    <select id="Lose">
+        <option value=""></option>
+        <option value="YOK">YOK</option>
+        <option value="1 SENE">1 SENE</option>
+        <option value="2 SENE">2 SENE</option>
+        <option value="3 SENE">3 SENE</option>
+    </select><br>
+
+    <label for="english_level">İngilizce Seviyesi:</label>
+    <select id="english_level">
+        <option value=""></option>
+        <option value="Upper Intermediate">Upper Intermediate</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+    </select><br>
+
+
+    <button type="submit">Hesapla</button>
+    <h3 id="error-message" style="color: red;">Lütfen tüm alanları doldurun.</h3>
+    <div id="bilgi-kutusu">
+        <h2 id="sonuc"></h2>
+        <h2 id="sonuc2"></h2>
+        <h3>Yıldız Puanlama Sistemi Puan Aralığı</h3>
+        <ul>
+          <li><strong>0 - 4.99: 1 YILDIZ </strong></li>
+          <li><strong>5.00 - 6.99: 2 YILDIZ </strong></li>
+          <li><strong>7.00 - 7.99: 3 YILDIZ </strong></li>
+          <li><strong>8.00 - 9.19: 4 YILDIZ </strong></li>
+          <li><strong>9.20 - 10.00: 5 YILDIZ </strong></li>
+        </ul>
+      </div>
+
+</form>
+
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
