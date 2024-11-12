@@ -1,19 +1,3 @@
-        document.getElementById('password').addEventListener('keyup', function(event) {
-            if (event.key === 'Enter') {
-                checkPassword();
-            }
-        });
-function checkPassword() {
-  const password = document.getElementById('password').value;
-  const correctPassword = 'Elsurnite';
-  if (password === correctPassword) {
-      document.getElementById('password-form').style.display = 'none';
-      document.getElementById('protected-content').style.display = 'block';
-  } else {
-      document.getElementById('error-message2').style.display = 'block';
-  }
-}
-
 const calculationForm = document.getElementById('calculationForm');
 const classSelect = document.getElementById('class');
 const gpaSelect = document.getElementById('gpa');
